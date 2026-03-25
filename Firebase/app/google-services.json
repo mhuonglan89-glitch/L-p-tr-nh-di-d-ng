@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "278631436786",
+    "firebase_url": "https://my-compose-firebase-default-rtdb.firebaseio.com",
+    "project_id": "my-compose-firebase",
+    "storage_bucket": "my-compose-firebase.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:278631436786:android:f3bd2933afd05bf236db6b",
+        "android_client_info": {
+          "package_name": "com.example.firebase"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdhfX8BLLHd8H-BpOu3w3FddR9cXxc7-c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
