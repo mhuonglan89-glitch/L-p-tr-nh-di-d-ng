@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Dice Roller</string>
+    <!-- Các dòng string khác bạn có thể đã thêm ở trên hoặc dưới đây -->
+    <string name="roll">Lắc xúc xắc!</string>
+</resources>
