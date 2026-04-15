@@ -59,7 +59,34 @@ fun SignIn(navController: NavController) {
                     if (email.isNotEmpty() && password.isNotEmpty()) {
                         firebaseAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                navController.navigate(Screen.Home.rout)
+                                // Lấy UID của người vừa đăng nhập thành công
+                                val uid = firebaseAuth.currentUser?.uid
+
+                                // Kết nối tới Realtime Database để kiểm tra Role (Phân quyền 1.0 điểm)
+                                val db = com.google.firebase.database.FirebaseDatabase.getInstance(
+                                    "https://pizzeria-4f8b7-default-rtdb.firebaseio.com/"
+                                ).getReference("users")
+
+                                uid?.let {
+                                    db.child(it).get().addOnSuccessListener { snapshot ->
+                                        // Lấy giá trị role, nếu null thì mặc định là "user"
+                                        val role = snapshot.child("role").value?.toString() ?: "user"
+
+                                        if (role == "admin") {
+                                            navController.navigate(Screen.Admin.rout) {
+                                                popUpTo(Screen.Signin.rout) { inclusive = true }
+                                            }
+                                        } else {
+                                            // Mọi trường hợp còn lại (user hoặc role lạ) đều vào Home
+                                            navController.navigate(Screen.Home.rout) {
+                                                popUpTo(Screen.Signin.rout) { inclusive = true }
+                                            }
+                                        }
+                                    }.addOnFailureListener {
+                                        // Nếu lỗi mạng không lấy được database, vẫn cho vào Home để xem menu
+                                        navController.navigate(Screen.Home.rout)
+                                    }
+                                }
                             } else {
                                 Toast.makeText(context, "Lỗi: ${task.exception?.message}", Toast.LENGTH_SHORT).show()
                             }

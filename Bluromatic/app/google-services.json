@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "860027066019",
+    "project_id": "bluromatic",
+    "storage_bucket": "bluromatic.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:860027066019:android:3a63d5c0aa3e1b33649116",
+        "android_client_info": {
+          "package_name": "com.example.bluromatic"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyANgrrvftqIYoj8uhI-bynDWidXjYynlaE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
